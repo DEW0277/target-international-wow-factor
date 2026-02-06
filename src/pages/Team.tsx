@@ -102,7 +102,7 @@ const Team = () => {
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
                 className={cn(
-                  "px-6 py-2 rounded-full text-sm font-medium transition-colors border",
+                  "px-6 py-2 rounded-full text-sm mx-2 font-medium transition-colors border",
                   activeCategory === cat.id
                     ? "bg-navy text-white border-navy"
                     : "bg-transparent text-navy border-navy/20 hover:bg-navy/5"

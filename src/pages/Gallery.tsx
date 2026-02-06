@@ -55,8 +55,8 @@ const Gallery = () => {
       <section className="pt-32 pb-20 relative overflow-hidden">
         <Container className="text-center relative z-10">
           <ScrollReveal width="100%">
-            <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/70">{t("gallery.title")}</h1>
-            <p className="mt-6 text-xl text-white/80 max-w-3xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-navy to-navy/70">{t("gallery.title")}</h1>
+            <p className="mt-6 text-xl text-navy/80 max-w-3xl mx-auto">
               {t("gallery.subtitle")}
             </p>
           </ScrollReveal>
@@ -73,7 +73,7 @@ const Gallery = () => {
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
                 className={cn(
-                  "px-6 py-2 rounded-full text-sm font-medium transition-colors border",
+                  "px-6 py-2 rounded-full text-sm mx-2 font-medium transition-colors border",
                   activeCategory === cat.id
                     ? "bg-navy text-white border-navy"
                     : "bg-transparent text-navy border-navy/20 hover:bg-navy/5"

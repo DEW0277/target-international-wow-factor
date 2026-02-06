@@ -96,7 +96,7 @@ const About = () => {
           <div className="max-w-3xl mx-auto">
             {timeline.map((year, index) => (
               <ScrollReveal key={year} width="100%" delay={index * 0.1}>
-                <div className="flex gap-6 mb-12 last:mb-0 group">
+                <div className="flex gap-6 mb-12 last:mb-0 group mt-12">
                   <div className="flex flex-col items-center">
                     <div className="w-12 h-12 rounded-full bg-navy/10 border border-navy/20 text-navy flex items-center justify-center font-bold text-sm group-hover:bg-navy/20 transition-colors">
                       {year}
