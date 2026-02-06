@@ -8,12 +8,12 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { cn } from "@/lib/utils";
 
 const highlights = [
-  { id: 1, title: "Science Lab", image: "/placeholder.svg" },
-  { id: 2, title: "Sports Day", image: "/placeholder.svg" },
-  { id: 3, title: "Art Exhibition", image: "/placeholder.svg" },
-  { id: 4, title: "Robotics Club", image: "/placeholder.svg" },
-  { id: 5, title: "Library", image: "/placeholder.svg" },
-  { id: 6, title: "Graduation", image: "/placeholder.svg" },
+  { id: 1, title: "Science Lab", image: "/images/highlights/science-lab.png" },
+  { id: 2, title: "Sports Day", image: "/images/highlights/sports-day.png" },
+  { id: 3, title: "Art Exhibition", image: "/images/highlights/art-exhibition.png" },
+  { id: 4, title: "Robotics Club", image: "/images/highlights/robotics-club.png" },
+  { id: 5, title: "Library", image: "/images/highlights/library-study.png" },
+  { id: 6, title: "Graduation", image: "/images/highlights/graduation-day.png" },
 ];
 
 export function HighlightsCarousel() {

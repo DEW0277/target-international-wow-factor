@@ -11,6 +11,7 @@ const languages: { code: Language; label: string }[] = [
   { code: "uz", label: "O'zbek" },
   { code: "ru", label: "Русский" },
   { code: "en", label: "English" },
+  { code: "de", label: "Deutsch" },
 ];
 
 export function Navbar() {
@@ -37,6 +38,7 @@ export function Navbar() {
     { href: "/about", label: t("nav.about") },
     { href: "/programs", label: t("nav.programs") },
     { href: "/admissions", label: t("nav.admissions") },
+    { href: "/branches", label: t("nav.branches") },
     { href: "/team", label: t("nav.team") },
     { href: "/gallery", label: t("nav.gallery") },
     { href: "/contact", label: t("nav.contact") },

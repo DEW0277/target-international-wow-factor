@@ -7,16 +7,17 @@ import {
   CTASection,
   FAQSection,
 } from "@/components/home";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const Home = () => {
   return (
     <Layout>
-      <VideoHero />
-      <ProgramsCarousel />
-      <StatsSection />
-      <HighlightsCarousel />
-      <FAQSection />
-      <CTASection />
+      <ScrollReveal width="100%"><VideoHero /></ScrollReveal>
+      <ScrollReveal width="100%" delay={0.2}><ProgramsCarousel /></ScrollReveal>
+      <ScrollReveal width="100%"><StatsSection /></ScrollReveal>
+      <ScrollReveal width="100%"><HighlightsCarousel /></ScrollReveal>
+      <ScrollReveal width="100%"><FAQSection /></ScrollReveal>
+      <ScrollReveal width="100%"><CTASection /></ScrollReveal>
     </Layout>
   );
 };

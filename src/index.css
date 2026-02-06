@@ -13,9 +13,10 @@
 
 @layer base {
   :root {
-    /* Navy: #042245 → HSL: 213 92% 14% */
-    --background: 180 14% 95%; /* #EFF4F4 */
-    --foreground: 213 92% 14%; /* Navy */
+    /* Cream Background: #FDFBF7 */
+    --background: 40 20% 98%; 
+    /* Navy Foreground: #042245 */
+    --foreground: 213 92% 14%;
 
     --card: 0 0% 100%;
     --card-foreground: 213 92% 14%;
@@ -27,37 +28,37 @@
     --primary: 213 92% 14%;
     --primary-foreground: 0 0% 100%;
 
-    /* Light background */
-    --secondary: 180 14% 95%;
+    /* Cream secondary */
+    --secondary: 40 20% 96%;
     --secondary-foreground: 213 92% 14%;
 
-    /* Muted - Slate text color */
-    --muted: 180 14% 95%;
-    --muted-foreground: 207 18% 42%; /* #586C7D */
+    /* Muted */
+    --muted: 40 20% 96%;
+    --muted-foreground: 207 18% 42%;
 
-    /* Accent - same as secondary for general use */
-    --accent: 180 14% 90%;
+    /* Accent */
+    --accent: 40 20% 94%;
     --accent-foreground: 213 92% 14%;
 
-    /* Destructive/CTA Red: #EE1606 → HSL: 4 94% 48% */
+    /* Destructive/CTA Red */
     --destructive: 4 94% 48%;
     --destructive-foreground: 0 0% 100%;
 
-    /* Neutral Gray: #BBBAC2 */
-    --border: 245 4% 74%;
-    --input: 245 4% 74%;
+    /* Border & Input */
+    --border: 213 14% 84%;
+    --input: 213 14% 84%;
     --ring: 213 92% 14%;
 
     --radius: 0.5rem;
 
     /* Sidebar */
-    --sidebar-background: 0 0% 98%;
+    --sidebar-background: 40 20% 98%;
     --sidebar-foreground: 213 92% 14%;
     --sidebar-primary: 213 92% 14%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 180 14% 95%;
+    --sidebar-accent: 40 20% 96%;
     --sidebar-accent-foreground: 213 92% 14%;
-    --sidebar-border: 245 4% 74%;
+    --sidebar-border: 213 14% 84%;
     --sidebar-ring: 213 92% 14%;
   }
 
@@ -107,7 +108,8 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply text-navy antialiased;
+    min-height: 100vh;
   }
 
   html {
@@ -116,13 +118,13 @@
 }
 
 @layer utilities {
-  /* Gradient overlay for video hero */
+  /* Gradient overlay for video hero - adjusted for light theme or kept dark for contrast if needed */
   .hero-overlay {
     background: linear-gradient(
       180deg,
-      hsl(213 92% 14% / 0.7) 0%,
-      hsl(213 92% 14% / 0.5) 50%,
-      hsl(213 92% 14% / 0.8) 100%
+      rgba(4, 34, 69, 0.3) 0%,
+      rgba(4, 34, 69, 0.1) 50%,
+      rgba(4, 34, 69, 0.4) 100%
     );
   }
 
@@ -166,6 +168,66 @@
 
   /* Text gradient */
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-destructive;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-navy to-red-cta;
+  }
+  
+  .glass {
+    @apply bg-white/40 backdrop-blur-md border border-white/30 shadow-lg;
+  }
+
+  .glass-card {
+    @apply bg-white/40 backdrop-blur-md border border-white/40 shadow-xl hover:bg-white/60 transition-all duration-300;
+  }
+
+  /* 3D & Gradient Enhancements */
+  .card-3d {
+    @apply relative transition-all duration-500 ease-out transform-gpu;
+    transform-style: preserve-3d;
+  }
+
+  .card-3d:hover {
+    transform: translateY(-10px) rotateX(2deg) rotateY(2deg);
+    @apply shadow-[0_20px_40px_-15px_rgba(4,34,69,0.2)];
+  }
+
+  /* Gradient Shadows */
+  .shadow-glow-blue:hover {
+    @apply shadow-[0_0_30px_-5px_rgba(59,130,246,0.5)];
+  }
+  .shadow-glow-red:hover {
+    @apply shadow-[0_0_30px_-5px_rgba(239,68,68,0.5)];
+  }
+  .shadow-glow-purple:hover {
+    @apply shadow-[0_0_30px_-5px_rgba(168,85,247,0.5)];
+  }
+  .shadow-glow-emerald:hover {
+    @apply shadow-[0_0_30px_-5px_rgba(16,185,129,0.5)];
+  }
+  .shadow-glow-amber:hover {
+    @apply shadow-[0_0_30px_-5px_rgba(245,158,11,0.5)];
+  }
+
+  /* Shimmer/Gradient Border Effect */
+  .gradient-border-hover {
+    @apply relative z-0 overflow-hidden;
+  }
+  .gradient-border-hover::before {
+    content: "";
+    @apply absolute inset-0 z-[-1] opacity-0 transition-opacity duration-300;
+    background: linear-gradient(45deg, #FF3D3D, #042245, #3B82F6);
+    margin: -2px; /* Border width */
+    border-radius: inherit;
+  }
+  .gradient-border-hover:hover::before {
+    @apply opacity-100;
+  }
+  /* Correction to ensure content background stays on top of border */
+  .gradient-border-hover::after {
+    content: "";
+    @apply absolute inset-0 z-[-1] bg-white/50 backdrop-blur-xl rounded-[inherit];
+  }
+
+  .bg-gradient-premium {
+    @apply bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-100 via-background to-background;
   }
 }

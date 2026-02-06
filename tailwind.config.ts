@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -63,11 +64,20 @@ export default {
           light: "hsl(213 92% 20%)",
           dark: "hsl(213 92% 10%)",
         },
+        cream: {
+          DEFAULT: "#FDFBF7",
+          dark: "#F5F2EB",
+        },
         slate: {
           text: "hsl(207 18% 42%)",
         },
         red: {
           cta: "hsl(4 94% 48%)",
+        },
+        glass: {
+          DEFAULT: "hsl(0 0% 100% / 0.1)",
+          dark: "hsl(213 92% 14% / 0.3)",
+          border: "hsl(0 0% 100% / 0.2)",
         },
       },
       fontFamily: {
@@ -80,6 +90,17 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        "blob": {
+          "0%": { transform: "translate(0px, 0px) scale(1)" },
+          "33%": { transform: "translate(30px, -50px) scale(1.1)" },
+          "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
+          "100%": { transform: "translate(0px, 0px) scale(1)" },
+        },
+         "wave": {
+            "0%":{ transform: "translateX(0) scale(20, 2)"},
+             "50%":{ transform: "translateX(-15px) scale(20, 2)"},
+            "100%":{ transform: "translateX(0) scale(20, 2)"},
+         },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -122,8 +143,11 @@ export default {
         "slide-in-left": "slide-in-left 0.3s ease-out",
         "scale-in": "scale-in 0.2s ease-out",
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
+        "blob": "blob 7s infinite",
+        "wave-slow": "wave 15s linear infinite",
+        "wave-slower": "wave 25s linear infinite",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindAnimate],
 } satisfies Config;

@@ -9,6 +9,7 @@ import {
   Send,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import TypewriterText from "@/components/ui/TypewriterText";
 
 const trustBadges = [
   { icon: BookOpen, key: "badge.curriculum" },
@@ -37,9 +38,8 @@ export function VideoHero() {
           muted
           loop
           playsInline
-          preload="none"
-          poster="/placeholder.svg"
-          className="absolute inset-0 w-full h-full object-cover opacity-40"
+          poster="/images/hero-poster.png"
+          className="absolute inset-0 w-full h-full object-cover opacity-60"
         >
           <source src="/videos/hero.mp4" type="video/mp4" />
         </video>
@@ -55,10 +55,14 @@ export function VideoHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
-            {t("hero.title")}{" "}
-            <span className="text-destructive">{t("hero.titleHighlight")}</span>
-          </h1>
+            <TypewriterText text={t("hero.title")} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight" />
+            <motion.div
+               initial={{ opacity: 0, scale: 0.9 }}
+               animate={{ opacity: 1, scale: 1 }}
+               transition={{ delay: 1.5, duration: 0.5 }}
+            >
+               <span className="text-destructive text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold block mt-2">{t("hero.titleHighlight")}</span>
+            </motion.div>
         </motion.div>
 
         <motion.p
@@ -87,11 +91,10 @@ export function VideoHero() {
           <Button
             asChild
             size="lg"
-            variant="outline"
-            className="border-white text-white hover:bg-white/10 text-lg px-8 py-6"
+            className="bg-white text-navy hover:bg-white/90 text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all"
           >
             <a href="https://t.me/targetschool" target="_blank" rel="noopener noreferrer">
-              <Send className="w-5 h-5 mr-2" />
+              <Send className="w-5 h-5 mr-2 text-navy" />
               {t("hero.cta.telegram")}
             </a>
           </Button>

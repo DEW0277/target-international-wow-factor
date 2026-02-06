@@ -93,21 +93,30 @@ export function ProgramsCarousel() {
               {programs.map((program, index) => (
                 <motion.div
                   key={program.titleKey}
-                  className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0"
+                  className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0 px-4"
                   whileHover={{ y: -5 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <div className="bg-card rounded-xl p-6 shadow-lg border h-full">
-                    <div className={cn("w-12 h-12 rounded-lg flex items-center justify-center text-white mb-4", program.color)}>
-                      <program.icon className="w-6 h-6" />
+                  <div className={`
+                    h-full glass-card rounded-2xl p-8 border border-white/40 
+                    card-3d transition-all duration-500
+                    ${program.color.includes("blue") ? "shadow-glow-blue" : ""}
+                    ${program.color.includes("indigo") ? "shadow-glow-purple" : ""}
+                    ${program.color.includes("emerald") ? "shadow-glow-emerald" : ""}
+                    ${program.color.includes("amber") ? "shadow-glow-amber" : ""}
+                    ${program.color.includes("rose") ? "shadow-glow-red" : ""}
+                    ${program.color.includes("violet") ? "shadow-glow-purple" : ""}
+                  `}>
+                    <div className={cn("w-14 h-14 rounded-xl flex items-center justify-center text-white mb-6 shadow-lg transform group-hover:rotate-6 transition-transform", program.color)}>
+                      <program.icon className="w-7 h-7" />
                     </div>
-                    <h3 className="text-xl font-semibold text-foreground mb-2">
+                    <h3 className="text-2xl font-bold text-navy mb-3 group-hover:text-blue-600 transition-colors">
                       {t(program.titleKey)}
                     </h3>
-                    <p className="text-muted-foreground text-sm mb-4">
+                    <p className="text-navy/70 text-sm mb-6 leading-relaxed">
                       {t(program.descKey)}
                     </p>
-                    <Button asChild variant="link" className="p-0 h-auto text-destructive">
+                    <Button asChild variant="link" className="p-0 h-auto text-red-cta font-semibold hover:text-red-700 group-hover:translate-x-2 transition-transform">
                       <Link to="/programs">Learn more →</Link>
                     </Button>
                   </div>

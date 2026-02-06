@@ -11,7 +11,12 @@ import Admissions from "./pages/Admissions";
 import Team from "./pages/Team";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
+import Branches from "./pages/Branches";
 import NotFound from "./pages/NotFound";
+
+import AnimatedBackground from "@/components/ui/AnimatedBackground";
+import ScrollFloatingElements from "@/components/ui/ScrollFloatingElements";
+
 
 const queryClient = new QueryClient();
 
@@ -19,6 +24,9 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <LanguageProvider>
       <TooltipProvider>
+        <AnimatedBackground />
+        <ScrollFloatingElements />
+
         <Toaster />
         <Sonner />
         <BrowserRouter>
@@ -30,6 +38,7 @@ const App = () => (
             <Route path="/team" element={<Team />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/branches" element={<Branches />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

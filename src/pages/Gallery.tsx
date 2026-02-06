@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { Layout, Container } from "@/components/layout";
-import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/ui/AnimatedSection";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { cn } from "@/lib/utils";
 
 const galleryItems = [
@@ -52,59 +52,64 @@ const Gallery = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="pt-32 pb-20 bg-primary text-primary-foreground">
-        <Container>
-          <AnimatedSection>
-            <h1 className="text-4xl md:text-5xl font-bold">{t("gallery.title")}</h1>
-            <p className="mt-6 text-xl text-primary-foreground/80 max-w-3xl">
+      <section className="pt-32 pb-20 relative overflow-hidden">
+        <Container className="text-center relative z-10">
+          <ScrollReveal width="100%">
+            <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/70">{t("gallery.title")}</h1>
+            <p className="mt-6 text-xl text-white/80 max-w-3xl mx-auto">
               {t("gallery.subtitle")}
             </p>
-          </AnimatedSection>
+          </ScrollReveal>
         </Container>
       </section>
 
       {/* Gallery */}
-      <section className="py-20 bg-background">
+      <section className="py-20">
         <Container>
           {/* Filter */}
-          <AnimatedSection className="flex justify-center gap-4 mb-12 flex-wrap">
+          <ScrollReveal width="100%" className="flex justify-center gap-4 mb-12 flex-wrap">
             {categories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
                 className={cn(
-                  "px-6 py-2 rounded-full text-sm font-medium transition-colors",
+                  "px-6 py-2 rounded-full text-sm font-medium transition-colors border",
                   activeCategory === cat.id
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-muted text-muted-foreground hover:bg-accent"
+                    ? "bg-navy text-white border-navy"
+                    : "bg-transparent text-navy border-navy/20 hover:bg-navy/5"
                 )}
               >
                 {cat.label}
               </button>
             ))}
-          </AnimatedSection>
+          </ScrollReveal>
 
           {/* Grid */}
-          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {filteredItems.map((item) => (
-              <StaggerItem key={item.id}>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {filteredItems.map((item, index) => (
+              <ScrollReveal key={item.id} width="100%" delay={index * 0.05}>
                 <motion.button
                   onClick={() => setSelectedId(item.id)}
                   whileHover={{ scale: 1.02 }}
-                  className="w-full aspect-square rounded-xl overflow-hidden relative group"
+                  className="
+                    w-full aspect-square rounded-2xl overflow-hidden relative group border border-white/40 
+                    card-3d shadow-glow-blue hover:shadow-glow-purple
+                  "
                 >
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                    <span className="text-white font-medium">{item.title}</span>
+                  
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                    <span className="text-white font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-500">{item.title}</span>
                   </div>
                 </motion.button>
-              </StaggerItem>
+              </ScrollReveal>
             ))}
-          </StaggerContainer>
+          </div>
         </Container>
       </section>
 
@@ -115,7 +120,7 @@ const Gallery = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-primary/90 backdrop-blur-sm p-4"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-4"
             onClick={() => setSelectedId(null)}
           >
             <button
@@ -158,7 +163,7 @@ const Gallery = () => {
               <img
                 src={filteredItems.find((item) => item.id === selectedId)?.image || "/placeholder.svg"}
                 alt={filteredItems.find((item) => item.id === selectedId)?.title || ""}
-                className="w-full rounded-xl shadow-2xl"
+                className="w-full rounded-xl shadow-2xl border border-white/10"
               />
               <p className="text-white text-center mt-4 font-medium">
                 {filteredItems.find((item) => item.id === selectedId)?.title}

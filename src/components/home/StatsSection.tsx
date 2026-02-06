@@ -14,24 +14,25 @@ export function StatsSection() {
   const { t } = useLanguage();
 
   return (
-    <section className="py-20 bg-primary text-primary-foreground relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-1/4 w-64 h-64 bg-destructive rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-white rounded-full blur-3xl" />
-      </div>
-
+    <section className="py-20 relative overflow-hidden">
       <Container className="relative z-10">
         <AnimatedSection>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {stats.map((stat, index) => (
-              <StatsCounter
+              <div 
                 key={stat.labelKey}
-                value={stat.value}
-                suffix={stat.suffix}
-                label={t(stat.labelKey)}
-                className="text-primary-foreground"
-              />
+                className="
+                  glass-card rounded-2xl p-6 border border-white/40 text-center
+                  card-3d shadow-glow-blue hover:shadow-glow-emerald
+                  flex flex-col items-center justify-center
+                "
+              >
+                <div className="w-16 h-16 rounded-full bg-blue-100/50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500">
+                  {/* Icon placeholder or just style the number */}
+                  <span className="text-4xl font-bold text-blue-600">{stat.value}{stat.suffix}</span>
+                </div>
+                <p className="text-navy font-medium opacity-80">{t(stat.labelKey)}</p>
+              </div>
             ))}
           </div>
         </AnimatedSection>
