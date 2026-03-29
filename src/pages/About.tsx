@@ -2,14 +2,16 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { Layout, Container } from "@/components/layout";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { Target, Eye, Heart, Users, CheckCircle2 } from "lucide-react";
+import { Target, Globe, Shield, Lightbulb, HandHeart, CheckCircle2, Award, BookOpen, Users, Star } from "lucide-react";
 
 const values = [
-  { icon: Target, key: "excellence" },
-  { icon: Eye, key: "vision" },
-  { icon: Heart, key: "care" },
-  { icon: Users, key: "community" },
+  { icon: Award, key: "excellence" },
   { icon: CheckCircle2, key: "resilience" },
+  { icon: Globe, key: "globalcitizenship" },
+  { icon: Shield, key: "protecting" },
+  { icon: Lightbulb, key: "innovation" },
+  { icon: HandHeart, key: "helping" },
+  { icon: Target, key: "integrity" },
 ];
 
 const timeline = ["2012", "2015", "2018", "2020", "2023"];
@@ -27,6 +29,9 @@ const About = () => {
             <p className="mt-6 text-xl text-navy/80 max-w-3xl mx-auto">
               {t("about.subtitle")}
             </p>
+            <div className="mt-12 rounded-2xl overflow-hidden shadow-2xl border border-white/20 mx-auto max-w-5xl">
+               <img src="/gallery/IMAGE 2026-03-26 17:40:30.jpg" alt="Main Building" className="w-full h-[300px] md:h-[500px] object-cover" />
+            </div>
           </ScrollReveal>
         </Container>
       </section>
@@ -37,7 +42,8 @@ const About = () => {
           <div className="grid md:grid-cols-2 gap-12">
             {/* Mission */}
             <ScrollReveal width="100%">
-              <div className="glass-card rounded-2xl p-8 border border-white/40 h-full hover:bg-white/60 transition-colors">
+              <div className="glass-card rounded-2xl p-8 border border-white/40 h-full hover:bg-white/60 transition-colors flex flex-col">
+                <img src="/gallery/IMAGE 2026-03-26 17:39:31.jpg" alt="Mission" className="w-full h-48 object-cover rounded-xl mb-6 shadow-md" />
                 <h2 className="text-2xl font-bold text-navy mb-4 flex items-center gap-2">
                   <div className="w-2 h-8 rounded-full bg-red-500" />
                   {t("about.mission.title")}
@@ -50,7 +56,8 @@ const About = () => {
 
             {/* Vision */}
             <ScrollReveal width="100%" delay={0.1}>
-              <div className="glass-card rounded-2xl p-8 border border-white/40 h-full hover:bg-white/60 transition-colors">
+              <div className="glass-card rounded-2xl p-8 border border-white/40 h-full hover:bg-white/60 transition-colors flex flex-col">
+                <img src="/gallery/IMAGE 2026-03-26 17:39:35.jpg" alt="Vision" className="w-full h-48 object-cover rounded-xl mb-6 shadow-md" />
                 <h2 className="text-2xl font-bold text-navy mb-4 flex items-center gap-2">
                   <div className="w-2 h-8 rounded-full bg-blue-500" />
                   {t("about.vision.title")}
@@ -65,7 +72,7 @@ const About = () => {
       </section>
 
       {/* Values */}
-      <section className="py-20">
+      <section id="values" className="py-20">
         <Container>
           <ScrollReveal width="100%" className="mb-12 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-navy">{t("about.values.title")}</h2>
@@ -83,6 +90,42 @@ const About = () => {
                 </div>
               </ScrollReveal>
             ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Educational Philosophy */}
+      <section className="py-20 bg-muted/30">
+        <Container>
+          <ScrollReveal width="100%" className="mb-12 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-navy">{t("about.philosophy.title")}</h2>
+          </ScrollReveal>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+             <ScrollReveal width="100%" delay={0.1}>
+                 <div className="glass-card rounded-2xl p-8 border border-white/40 h-full hover:shadow-glow-blue transition-all group flex flex-col">
+                     <img src="/gallery/IMAGE 2026-03-26 17:39:37.jpg" alt="Academic" className="w-full h-40 object-cover rounded-xl mb-6 shadow-md" />
+                     <BookOpen className="w-10 h-10 text-blue-500 mb-6 group-hover:scale-110 transition-transform" />
+                     <h3 className="font-semibold text-xl text-navy mb-3">{t("about.philosophy.academic.title")}</h3>
+                     <p className="text-navy/70 leading-relaxed">{t("about.philosophy.academic.desc")}</p>
+                 </div>
+             </ScrollReveal>
+             <ScrollReveal width="100%" delay={0.2}>
+                 <div className="glass-card rounded-2xl p-8 border border-white/40 h-full hover:shadow-glow-emerald transition-all group flex flex-col">
+                     <img src="/gallery/IMAGE 2026-03-26 17:39:40.jpg" alt="Holistic" className="w-full h-40 object-cover rounded-xl mb-6 shadow-md" />
+                     <Users className="w-10 h-10 text-emerald-500 mb-6 group-hover:scale-110 transition-transform" />
+                     <h3 className="font-semibold text-xl text-navy mb-3">{t("about.philosophy.holistic.title")}</h3>
+                     <p className="text-navy/70 leading-relaxed">{t("about.philosophy.holistic.desc")}</p>
+                 </div>
+             </ScrollReveal>
+             <ScrollReveal width="100%" delay={0.3}>
+                 <div className="glass-card rounded-2xl p-8 border border-white/40 h-full hover:shadow-glow-purple transition-all group flex flex-col">
+                     <img src="/gallery/IMAGE 2026-03-26 17:39:43.jpg" alt="Ethos" className="w-full h-40 object-cover rounded-xl mb-6 shadow-md" />
+                     <Star className="w-10 h-10 text-purple-500 mb-6 group-hover:scale-110 transition-transform" />
+                     <h3 className="font-semibold text-xl text-navy mb-3">{t("about.philosophy.ethos.title")}</h3>
+                     <p className="text-navy/70 leading-relaxed">{t("about.philosophy.ethos.desc")}</p>
+                 </div>
+             </ScrollReveal>
           </div>
         </Container>
       </section>

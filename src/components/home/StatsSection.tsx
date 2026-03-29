@@ -4,10 +4,10 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { StatsCounter } from "@/components/ui/StatsCounter";
 
 const stats = [
-  { value: 500, suffix: "+", labelKey: "stats.students" },
-  { value: 45, suffix: "", labelKey: "stats.teachers" },
-  { value: 12, suffix: "", labelKey: "stats.years" },
-  { value: 95, suffix: "%", labelKey: "stats.universities" },
+  { value: 12, suffix: "+", labelKey: "stats.years" },
+  { value: 5000, suffix: "+", labelKey: "stats.students" },
+  { value: 92, suffix: "%", labelKey: "stats.universities" },
+  { value: 7, suffix: "", labelKey: "stats.teachers" },
 ];
 
 export function StatsSection() {
@@ -19,7 +19,7 @@ export function StatsSection() {
         <AnimatedSection>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {stats.map((stat, index) => (
-              <div 
+              <div
                 key={stat.labelKey}
                 className="
                   glass-card rounded-2xl p-6 border border-white/40 text-center
@@ -29,9 +29,14 @@ export function StatsSection() {
               >
                 <div className="w-16 h-16 rounded-full bg-blue-100/50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500">
                   {/* Icon placeholder or just style the number */}
-                  <span className="text-4xl font-bold text-blue-600">{stat.value}{stat.suffix}</span>
+                  <span className="text-4xl font-bold text-blue-600">
+                    {stat.value}
+                    {stat.suffix}
+                  </span>
                 </div>
-                <p className="text-navy font-medium opacity-80">{t(stat.labelKey)}</p>
+                <p className="text-navy font-medium opacity-80">
+                  {t(stat.labelKey)}
+                </p>
               </div>
             ))}
           </div>

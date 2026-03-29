@@ -7,18 +7,28 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { cn } from "@/lib/utils";
 
 const galleryItems = [
-  { id: 1, category: "campus", title: "Main Building", image: "/placeholder.svg" },
-  { id: 2, category: "campus", title: "Science Lab", image: "/placeholder.svg" },
-  { id: 3, category: "campus", title: "Library", image: "/placeholder.svg" },
-  { id: 4, category: "events", title: "Sports Day 2023", image: "/placeholder.svg" },
-  { id: 5, category: "events", title: "Science Fair", image: "/placeholder.svg" },
-  { id: 6, category: "events", title: "Graduation Ceremony", image: "/placeholder.svg" },
-  { id: 7, category: "activities", title: "Robotics Club", image: "/placeholder.svg" },
-  { id: 8, category: "activities", title: "Art Exhibition", image: "/placeholder.svg" },
-  { id: 9, category: "activities", title: "Music Performance", image: "/placeholder.svg" },
-  { id: 10, category: "campus", title: "Sports Ground", image: "/placeholder.svg" },
-  { id: 11, category: "events", title: "Cultural Day", image: "/placeholder.svg" },
-  { id: 12, category: "activities", title: "Chess Tournament", image: "/placeholder.svg" },
+  { id: 1, category: "campus", title: "Target International School", image: "/gallery/DSC09213.JPG" },
+  { id: 2, category: "events", title: "Jarayon", image: "/gallery/IMAGE 2026-03-26 17:39:31.jpg" },
+  { id: 3, category: "activities", title: "O'quvchilar", image: "/gallery/IMAGE 2026-03-26 17:39:35.jpg" },
+  { id: 4, category: "campus", title: "Sinfxona", image: "/gallery/IMAGE 2026-03-26 17:39:37.jpg" },
+  { id: 5, category: "events", title: "Dars", image: "/gallery/IMAGE 2026-03-26 17:39:40.jpg" },
+  { id: 6, category: "activities", title: "Faollik", image: "/gallery/IMAGE 2026-03-26 17:39:43.jpg" },
+  { id: 7, category: "campus", title: "Maktab binosi", image: "/gallery/IMAGE 2026-03-26 17:39:45.jpg" },
+  { id: 8, category: "events", title: "Tadbir", image: "/gallery/IMAGE 2026-03-26 17:39:48.jpg" },
+  { id: 9, category: "activities", title: "Amaliyot", image: "/gallery/IMAGE 2026-03-26 17:39:50.jpg" },
+  { id: 10, category: "campus", title: "Sharoitlar", image: "/gallery/IMAGE 2026-03-26 17:39:57.jpg" },
+  { id: 11, category: "events", title: "Jamoa", image: "/gallery/IMAGE 2026-03-26 17:40:00.jpg" },
+  { id: 12, category: "activities", title: "O'zlashtirish", image: "/gallery/IMAGE 2026-03-26 17:40:03.jpg" },
+  { id: 13, category: "campus", title: "Labaratoriya", image: "/gallery/IMAGE 2026-03-26 17:40:06.jpg" },
+  { id: 14, category: "events", title: "Ochiq dars", image: "/gallery/IMAGE 2026-03-26 17:40:08.jpg" },
+  { id: 15, category: "activities", title: "Amaliyot", image: "/gallery/IMAGE 2026-03-26 17:40:10.jpg" },
+  { id: 16, category: "campus", title: "Kutubxona", image: "/gallery/IMAGE 2026-03-26 17:40:13.jpg" },
+  { id: 17, category: "events", title: "Мулоқот", image: "/gallery/IMAGE 2026-03-26 17:40:16.jpg" },
+  { id: 18, category: "activities", title: "O'rganish", image: "/gallery/IMAGE 2026-03-26 17:40:20.jpg" },
+  { id: 19, category: "campus", title: "Sport zali", image: "/gallery/IMAGE 2026-03-26 17:40:22.jpg" },
+  { id: 20, category: "events", title: "Tajriba", image: "/gallery/IMAGE 2026-03-26 17:40:25.jpg" },
+  { id: 21, category: "activities", title: "Izlanish", image: "/gallery/IMAGE 2026-03-26 17:40:28.jpg" },
+  { id: 22, category: "campus", title: "Foye", image: "/gallery/IMAGE 2026-03-26 17:40:30.jpg" }
 ];
 
 const categories = [

@@ -5,16 +5,18 @@ export const translations: Record<Language, Record<string, string>> = {
     // Navigation
     "nav.home": "Bosh sahifa",
     "nav.about": "Biz haqimizda",
+    "nav.values": "Asosiy qadriyatlar",
     "nav.programs": "Dasturlar",
     "nav.admissions": "Qabul",
     "nav.branches": "Filiallar",
-    "nav.team": "Jamoa",
+    "nav.team": "Bizning jamoa",
     "nav.gallery": "Galereya",
-    "nav.contact": "Aloqa",
+    "nav.contact": "Biz bilan bog'lanish",
     
     // Hero
-    "hero.title": "Farzandingiz kelajagini",
-    "hero.titleHighlight": "bugundan boshlang",
+    "hero.title": "TARGET International",
+    "hero.titleHighlight": "School",
+    "hero.subtitle": "Ingliz tili, tadbirkorlik va zamonaviy texnologiyalarga urg'u berilgan xalqaro ta'lim",
     "hero.cta.apply": "Qabul uchun ariza",
     "hero.cta.telegram": "Telegram orqali aloqa",
     
@@ -28,20 +30,34 @@ export const translations: Record<Language, Record<string, string>> = {
     "about.title": "Biz haqimizda",
     "about.subtitle": "TARGET Xalqaro Maktabi - bu kelajak liderlarini tarbiyalovchi, zamonaviy bilim va qadriyatlarni uyg'unlashtirgan ta'lim maskani.",
     "about.mission.title": "Bizning Missiyamiz",
-    "about.mission.desc": "O'quvchilarga dunyo standartlariga mos sifatli ta'lim berish, ularning intellektual va ma'naviy salohiyatini yuksaltirish.",
+    "about.mission.desc": "Faqatgina aqlli emas, balki har tomonlama barkamol shaxslarni tarbiyalash. Kitoblardan tashqariga chiqib, o'quvchilarda qiziqish, ijodkorlik va tanqidiy fikrlashni rivojlantirish hamda 21-asr ko'nikmalariga ega o'ziga ishongan va mehribon yetakchilarni shakllantirish.",
     "about.vision.title": "Bizning Vizyonimiz",
-    "about.vision.desc": "O'zbekistondagi eng ilg'or va nufuzli xalqaro maktablardan biriga aylanish, global miqyosda raqobatbardosh avlodni shakllantirish.",
-    "about.values.title": "Bizning qadriyatlarimiz",
-    "about.values.excellence.title": "Mukammallik",
-    "about.values.excellence.desc": "Biz har bir ishda eng yuqori standartlarga intilamiz",
-    "about.values.vision.title": "Vizyon",
-    "about.values.vision.desc": "O'quvchilarni tez o'zgarayotgan global kelajakka tayyorlash",
-    "about.values.care.title": "G'amxo'rlik",
-    "about.values.care.desc": "Har bir o'quvchi qadrlanadi va individual qo'llab-quvvatlanadi",
-    "about.values.community.title": "Hamjamiyat",
-    "about.values.community.desc": "Oilalar va hamkorlar bilan mustahkam aloqalar o'rnatish",
-    "about.values.resilience.title": "Matonat",
-    "about.values.resilience.desc": "Biz o'quvchilarimizni hech qachon taslim bo'lmaslikka undaymiz",
+    "about.vision.desc": "O'zbekistonning boy madaniyati bilan xalqaro ta'limni mukammal uyg'unlashtirgan eng ishonchli maktab bo'lish. O'quvchilarni nafaqat akademik bilimlar, balki ertangi kun biznes olamida va top universitetlarda muvaffaqiyat qozonishi uchun zarur bo'lgan amaliy ko'nikmalar, hissiy barqarorlik va global dunyoqarash bilan tayyorlash.",
+    
+    "about.values.title": "Asosiy Qadriyatlar",
+    "about.values.excellence.title": "Mukammallik (Excellence)",
+    "about.values.excellence.desc": "Akademik va xarakterdagi eng yuqori standartlarga intilish",
+    "about.values.resilience.title": "Chidamlilik (Resilience)",
+    "about.values.resilience.desc": "Qat'iyat va moslashuvchanlikni rivojlantirish",
+    "about.values.globalcitizenship.title": "Global Fuqarolik",
+    "about.values.globalcitizenship.desc": "Turfaxillikni qadrlash va mahalliy/global jamoalarga hissa qo'shish",
+    "about.values.protecting.title": "Himoya qilish (Protecting)",
+    "about.values.protecting.desc": "Sayyoramizni asrash va atrof-muhitni muhofaza qilish",
+    "about.values.innovation.title": "Innovatsiya (Innovation)",
+    "about.values.innovation.desc": "Ijodiy fikrlash va muammolarni hal qilishni rag'batlantirish",
+    "about.values.helping.title": "Yordam berish (Helping)",
+    "about.values.helping.desc": "Hayotni yaxshilash va boshqalarni yuksaltirish uchun harakat qilish",
+    "about.values.integrity.title": "Halollik (Integrity)",
+    "about.values.integrity.desc": "Halollik, adolat va axloqiy jasorat bilan harakat qilish",
+    
+    "about.philosophy.title": "Ta'lim Falsafasi",
+    "about.philosophy.academic.title": "Akademik qat'iylik",
+    "about.philosophy.academic.desc": "Tadqiqotlarga asoslangan o'qitish metodlari va xalqaro o'quv dasturi",
+    "about.philosophy.holistic.title": "Yaxlit rivojlanish",
+    "about.philosophy.holistic.desc": "Yetakchilik dasturlari, ijtimoiy-hissiy ta'lim, boshlang'ich sinflardanoq kasb/universitetga tayyorgarlik ko'rish",
+    "about.philosophy.ethos.title": "Ta'lim etikasi (Ethos)",
+    "about.philosophy.ethos.desc": "Xalqaro ta'lim standartlari, O'zbek madaniyati va qadriyatlarini hurmat qilish, ko'p tilli o'quv muhiti",
+
     "about.journey.title": "Bizning yo'limiz",
     "about.timeline.2012.title": "Maktabga asos solindi",
     "about.timeline.2012.desc": "TARGET Xalqaro Maktabi 50 nafar o'quvchi bilan o'z eshiklarini ochdi",
@@ -55,30 +71,34 @@ export const translations: Record<Language, Record<string, string>> = {
     "about.timeline.2023.desc": "Jahon standartlaridagi qulayliklarga ega zamonaviy kampusga kengaydi",
     
     // Stats
-    "stats.students": "O'quvchilar",
-    "stats.teachers": "Tajribali o'qituvchilar",
+    "stats.students": "O'quvchi",
+    "stats.teachers": "Barcha filiallar",
     "stats.years": "Yillik tajriba",
-    "stats.universities": "Universitetlarga qabul",
+    "stats.universities": "Xorijiy universitetlarga",
     
-    // Programs
-    "programs.title": "Ta'lim dasturlari",
-    "programs.subtitle": "Har bir o'quvchi uchun individual yondashuv",
-    "programs.primary.title": "Boshlang'ich ta'lim",
-    "programs.primary.desc": "Cambridge Primary dasturi asosida 6-10 yoshli bolalar uchun",
-    "programs.secondary.title": "O'rta ta'lim",
-    "programs.secondary.desc": "Cambridge Secondary 1 & 2 dasturlari, 11-16 yosh",
-    "programs.stem.title": "STEM & Robototexnika",
-    "programs.stem.desc": "Amaliy loyihalar va musobaqalarga tayyorgarlik",
-    "programs.languages.title": "Tillar markazi",
-    "programs.languages.desc": "Ingliz, rus, koreys, xitoy tillari",
-    "programs.ielts.title": "IELTS tayyorlov",
-    "programs.ielts.desc": "7.0+ ball olish kafolati bilan intensiv kurslar",
-    "programs.university.title": "Universitet tayyorlov",
-    "programs.university.desc": "SAT, A-Level va universitetga hujjat topshirish",
+    // Programs -> Why Target?
+    "programs.title": "Nima uchun Target ni tanlash kerak?",
+    "programs.subtitle": "Eng yaxshi global amaliyotlar va mahalliy qadriyatlar uyg'unligi",
+    "programs.primary.title": "Xalqaro o'quv dasturi",
+    "programs.primary.desc": "Eng yaxshi jahon ta'lim standartlari integratsiyasi",
+    "programs.secondary.title": "Individual yondashuv",
+    "programs.secondary.desc": "Kichik sinflar va shaxsiylashtirilgan o'quv rejalari",
+    "programs.stem.title": "Zamonaviy infratuzilma",
+    "programs.stem.desc": "Jihozlangan sinfxonalar, laboratoriyalar va dam olish zonalari",
+    "programs.languages.title": "Ingliz tilini chuqur o'rganish",
+    "programs.languages.desc": "IELTS va boshqa xalqaro imtihonlarga tayyorgarlik ko'rish",
+    "programs.ielts.title": "Universitetga kirishda qo'llab-quvvatlash",
+    "programs.ielts.desc": "Universitet tanlash va hujjatlarni tayyorlashda maslahat va yordam",
+    "programs.university.title": "Biznes va IT darslari",
+    "programs.university.desc": "Tadbirkorlik ko'nikmalari va raqamli savodxonlikni rivojlantirish",
     
     // Highlights
     "highlights.title": "Kampus hayoti",
     "highlights.subtitle": "Zamonaviy infratuzilma va boy tajribalar",
+    
+    // Testimonials
+    "testimonials.title": "Ota-onalar va o'quvchilar fikri",
+    "testimonials.subtitle": "Bizning jamoamiz xaqida mijozlarimiz",
     
     // Admissions
     "admissions.title": "Qabul jarayoni",
@@ -94,13 +114,13 @@ export const translations: Record<Language, Record<string, string>> = {
     
     // Contact
     "contact.title": "Biz bilan bog'laning",
-    "contact.subtitle": "Savollaringiz bormi? Biz yordam berishga tayyormiz",
+    "contact.subtitle": "Manzil va telefon raqamlarimiz",
     "contact.address": "Manzil",
-    "contact.addressText": "Toshkent shahri, Yunusobod tumani",
+    "contact.addressText": "Toshkent shahri, Yunusobod tumani, Nurmakon ko'chasi, 1",
     "contact.phone": "Telefon",
-    "contact.email": "Email",
-    "contact.hours": "Ish vaqti",
-    "contact.hoursText": "Dush-Juma: 8:00 - 18:00",
+    "contact.email": "E-mail",
+    "contact.hours": "Filiallar",
+    "contact.hoursText": "Tinchlik, Sirg'ali, Olmazor, Yunusobod",
     
     // Form
     "form.name": "Ismingiz",
@@ -119,13 +139,13 @@ export const translations: Record<Language, Record<string, string>> = {
     "footer.address": "Toshkent, O'zbekiston",
     
     // CTA
-    "cta.title": "Farzandingiz kelajagini bugundan boshlang",
-    "cta.subtitle": "Bepul konsultatsiya va maktabga tashrif uchun ro'yxatdan o'ting",
+    "cta.title": "Siz ham biz bilan birga bo'lishni xohlaysizmi?",
+    "cta.subtitle": "Shu yerda ro'yxatdan o'ting",
     "cta.button": "Bepul konsultatsiya olish",
     
     // Team
-    "team.title": "Bizning jamoa",
-    "team.subtitle": "Tajribali va g'amxo'r o'qituvchilar",
+    "team.title": "Bizning Jamoa",
+    "team.subtitle": "TARGET School ning professional o'qituvchilari",
     
     // Gallery
     "gallery.title": "Galereya",
@@ -144,7 +164,7 @@ export const translations: Record<Language, Record<string, string>> = {
     
     // Branches
     "branches.title": "Bizning Filiallar",
-    "branches.subtitle": "Toshkent shahri bo'ylab qulay joylashuvdagi maktablarimiz",
+    "branches.subtitle": "Toshkent shahri bo'ylab qulay joylashuvdagi filiallarimiz: Tinchlik, Sirg'ali, Olmazor, Yunusobod",
     "branches.getDirections": "Yo'nalish olish",
   },
   

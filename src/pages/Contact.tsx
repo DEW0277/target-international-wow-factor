@@ -33,10 +33,10 @@ const Contact = () => {
   };
 
   const contactInfo = [
-    { icon: MapPin, title: "Address", details: "123 Education Street, Tashkent, Uzbekistan", link: "#" },
-    { icon: Phone, title: "Phone", details: "+998 71 123 45 67", link: "tel:+998711234567" },
-    { icon: Mail, title: "Email", details: "info@target.uz", link: "mailto:info@target.uz" },
-    { icon: Clock, title: "Working Hours", details: "Mon - Fri: 8:00 - 17:00", link: null },
+    { icon: MapPin, title: t("contact.address"), details: t("contact.addressText"), link: "https://maps.google.com" },
+    { icon: Phone, title: t("contact.phone"), details: "+998 71 200 07 37", link: "tel:+998712000737" },
+    { icon: Mail, title: t("contact.email"), details: "info@targetschool.uz", link: "mailto:info@targetschool.uz" },
+    { icon: Clock, title: t("contact.hours"), details: t("contact.hoursText"), link: null },
   ];
 
   return (

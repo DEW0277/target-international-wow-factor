@@ -36,11 +36,9 @@ export function Navbar() {
   const navLinks = [
     { href: "/", label: t("nav.home") },
     { href: "/about", label: t("nav.about") },
-    { href: "/programs", label: t("nav.programs") },
-    { href: "/admissions", label: t("nav.admissions") },
-    { href: "/branches", label: t("nav.branches") },
-    { href: "/team", label: t("nav.team") },
+    { href: "/about#values", label: t("nav.values") },
     { href: "/gallery", label: t("nav.gallery") },
+    { href: "/team", label: t("nav.team") },
     { href: "/contact", label: t("nav.contact") },
   ];
 
@@ -55,19 +53,23 @@ export function Navbar() {
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           isScrolled || !isHome
             ? "bg-card/95 backdrop-blur-md shadow-md"
-            : "bg-transparent"
+            : "bg-transparent",
         )}
       >
         <Container>
           <nav className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2">
-              <div className={cn(
-                "font-bold text-xl md:text-2xl transition-colors",
-                isScrolled || !isHome ? "text-primary" : "text-white"
-              )}>
-                TARGET
-                <span className="text-destructive ml-1">School</span>
+              <div
+                className={cn(
+                  "font-bold text-xl md:text-2xl transition-colors",
+                  isScrolled || !isHome ? "text-primary" : "text-white",
+                )}
+              >
+                <img
+                  src="https://targetschool.uz/assets/icons/Logo.svg"
+                  alt=""
+                />
               </div>
             </Link>
 
@@ -82,8 +84,8 @@ export function Navbar() {
                     location.pathname === link.href
                       ? "text-destructive"
                       : isScrolled || !isHome
-                      ? "text-foreground hover:text-destructive"
-                      : "text-white/90 hover:text-white"
+                        ? "text-foreground hover:text-destructive"
+                        : "text-white/90 hover:text-white",
                   )}
                 >
                   {link.label}
@@ -107,7 +109,7 @@ export function Navbar() {
                     "flex items-center gap-1 text-sm font-medium transition-colors px-2 py-1 rounded",
                     isScrolled || !isHome
                       ? "text-foreground hover:bg-muted"
-                      : "text-white hover:bg-white/10"
+                      : "text-white hover:bg-white/10",
                   )}
                 >
                   {language.toUpperCase()}
@@ -130,7 +132,8 @@ export function Navbar() {
                           }}
                           className={cn(
                             "w-full px-4 py-2 text-left text-sm hover:bg-muted transition-colors",
-                            language === lang.code && "text-destructive font-medium"
+                            language === lang.code &&
+                              "text-destructive font-medium",
                           )}
                         >
                           {lang.label}
@@ -148,10 +151,14 @@ export function Navbar() {
                   "lg:hidden p-2 rounded-lg transition-colors",
                   isScrolled || !isHome
                     ? "text-foreground hover:bg-muted"
-                    : "text-white hover:bg-white/10"
+                    : "text-white hover:bg-white/10",
                 )}
               >
-                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {isMobileMenuOpen ? (
+                  <X className="w-6 h-6" />
+                ) : (
+                  <Menu className="w-6 h-6" />
+                )}
               </button>
             </div>
           </nav>
@@ -187,7 +194,7 @@ export function Navbar() {
                       "block px-4 py-3 rounded-lg text-sm font-medium transition-colors",
                       location.pathname === link.href
                         ? "bg-destructive/10 text-destructive"
-                        : "text-foreground hover:bg-muted"
+                        : "text-foreground hover:bg-muted",
                     )}
                   >
                     {link.label}

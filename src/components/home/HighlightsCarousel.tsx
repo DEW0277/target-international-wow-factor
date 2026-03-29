@@ -20,7 +20,7 @@ export function HighlightsCarousel() {
   const { t } = useLanguage();
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
-    align: "start",
+    align: "center",
   });
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [isPaused, setIsPaused] = useState(false);
@@ -72,12 +72,12 @@ export function HighlightsCarousel() {
             </button>
 
             {/* Carousel */}
-            <div ref={emblaRef} className="overflow-hidden rounded-xl">
+            <div ref={emblaRef} className="overflow-hidden rounded-xl px-4">
               <div className="flex gap-4">
                 {highlights.map((item) => (
                   <motion.div
                     key={item.id}
-                    className="flex-[0_0_80%] sm:flex-[0_0_45%] lg:flex-[0_0_30%] min-w-0"
+                    className="flex-[0_0_85%] sm:flex-[0_0_60%] lg:flex-[0_0_46%] min-w-0"
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.2 }}
                   >

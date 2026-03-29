@@ -22,7 +22,7 @@ export function ProgramsCarousel() {
   const { t } = useLanguage();
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
-    align: "start",
+    align: "center",
     slidesToScroll: 1,
   });
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -88,12 +88,12 @@ export function ProgramsCarousel() {
           </button>
 
           {/* Carousel */}
-          <div ref={emblaRef} className="overflow-hidden">
+          <div ref={emblaRef} className="overflow-hidden px-4">
             <div className="flex gap-6">
               {programs.map((program, index) => (
                 <motion.div
                   key={program.titleKey}
-                  className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0 px-4"
+                  className="flex-[0_0_85%] sm:flex-[0_0_65%] lg:flex-[0_0_48%] min-w-0 px-2"
                   whileHover={{ y: -5 }}
                   transition={{ duration: 0.2 }}
                 >
