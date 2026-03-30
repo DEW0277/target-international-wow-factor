@@ -44,7 +44,7 @@ export function FloatingCTA() {
 
       {/* Telegram Button (always visible) */}
       <motion.a
-        href="https://t.me/targetschool"
+        href="https://t.me/targetschooluz"
         target="_blank"
         rel="noopener noreferrer"
         initial={{ scale: 0 }}

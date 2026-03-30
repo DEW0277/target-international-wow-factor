@@ -93,7 +93,7 @@ export function VideoHero() {
             size="lg"
             className="bg-white text-navy hover:bg-white/90 text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all"
           >
-            <a href="https://t.me/targetschool" target="_blank" rel="noopener noreferrer">
+            <a href="https://t.me/targetschooluz" target="_blank" rel="noopener noreferrer">
               <Send className="w-5 h-5 mr-2 text-navy" />
               {t("hero.cta.telegram")}
             </a>
