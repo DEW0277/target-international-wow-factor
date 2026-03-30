@@ -1,5 +1,13 @@
 import { Link } from "react-router-dom";
-import { MapPin, Phone, Mail, Facebook, Instagram, Youtube, Send } from "lucide-react";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Facebook,
+  Instagram,
+  Youtube,
+  Send,
+} from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { Container } from "./Container";
 
@@ -17,9 +25,21 @@ export function Footer() {
 
   const socialLinks = [
     { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
-    { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-    { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
-    { icon: Send, href: "https://t.me/targetschool", label: "Telegram" },
+    {
+      icon: Instagram,
+      href: "https://www.instagram.com/targetschool.uz",
+      label: "Instagram",
+    },
+    {
+      icon: Youtube,
+      href: "https://www.youtube.com/@TargetEdu",
+      label: "YouTube",
+    },
+    {
+      icon: Send,
+      href: "https://t.me/targetschooluz",
+      label: "Telegram",
+    },
   ];
 
   return (
@@ -34,7 +54,8 @@ export function Footer() {
               </div>
             </Link>
             <p className="text-primary-foreground/80 text-sm leading-relaxed">
-              International education excellence in the heart of Tashkent. Cambridge curriculum, STEM focus, and individual approach.
+              International education excellence in the heart of Tashkent.
+              Cambridge curriculum, STEM focus, and individual approach.
             </p>
           </div>
 
@@ -65,13 +86,19 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3 text-sm text-primary-foreground/80">
                 <Phone className="w-4 h-4 flex-shrink-0" />
-                <a href="tel:+998901234567" className="hover:text-primary-foreground transition-colors">
+                <a
+                  href="tel:+998901234567"
+                  className="hover:text-primary-foreground transition-colors"
+                >
                   +998 90 123 45 67
                 </a>
               </li>
               <li className="flex items-center gap-3 text-sm text-primary-foreground/80">
                 <Mail className="w-4 h-4 flex-shrink-0" />
-                <a href="mailto:info@targetschool.uz" className="hover:text-primary-foreground transition-colors">
+                <a
+                  href="mailto:info@targetschool.uz"
+                  className="hover:text-primary-foreground transition-colors"
+                >
                   info@targetschool.uz
                 </a>
               </li>

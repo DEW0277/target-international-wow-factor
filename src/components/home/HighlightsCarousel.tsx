@@ -5,15 +5,22 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { Container } from "@/components/layout/Container";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import { LazyImage } from "@/components/ui/LazyImage";
 import { cn } from "@/lib/utils";
 
 const highlights = [
-  { id: 1, title: "Science Lab", image: "/images/highlights/science-lab.png" },
-  { id: 2, title: "Sports Day", image: "/images/highlights/sports-day.png" },
-  { id: 3, title: "Art Exhibition", image: "/images/highlights/art-exhibition.png" },
-  { id: 4, title: "Robotics Club", image: "/images/highlights/robotics-club.png" },
-  { id: 5, title: "Library", image: "/images/highlights/library-study.png" },
-  { id: 6, title: "Graduation", image: "/images/highlights/graduation-day.png" },
+  { id: 1, title: "Maktab binosi", image: "/gallery/DSC09213.JPG" },
+  { id: 2, title: "Dars jarayoni", image: "/gallery/ERU_0566.JPG" },
+  { id: 3, title: "O'quvchilar", image: "/gallery/ERU_0568.JPG" },
+  { id: 4, title: "Sinfxona", image: "/gallery/ERU_0571.JPG" },
+  { id: 5, title: "Faoliyat", image: "/gallery/ERU_0572.JPG" },
+  { id: 6, title: "Jamoa", image: "/gallery/ERU_0577.JPG" },
+  { id: 7, title: "Amaliyot", image: "/gallery/ERU_0582.JPG" },
+  { id: 8, title: "Laboratoriya", image: "/gallery/ERU_0592.JPG" },
+  { id: 9, title: "O'zlashtirish", image: "/gallery/ERU_0596.jpg" },
+  { id: 10, title: "Sharoitlar", image: "/gallery/11ERU_0532.jpg" },
+  { id: 11, title: "Ochiq dars", image: "/gallery/IMAGE 2026-03-26 17:40:08.jpg" },
+  { id: 12, title: "Sport", image: "/gallery/IMAGE 2026-03-26 17:40:22.jpg" },
 ];
 
 export function HighlightsCarousel() {
@@ -85,9 +92,10 @@ export function HighlightsCarousel() {
                       onClick={() => setSelectedImage(item.id)}
                       className="w-full aspect-[4/3] rounded-xl overflow-hidden relative group"
                     >
-                      <img
+                      <LazyImage
                         src={item.image}
                         alt={item.title}
+                        priority={item.id <= 2}
                         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">

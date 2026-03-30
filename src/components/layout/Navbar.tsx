@@ -14,12 +14,21 @@ const languages: { code: Language; label: string }[] = [
   { code: "de", label: "Deutsch" },
 ];
 
+const branches = [
+  { name: "Target Chilonzor", url: "https://targetschool.uz" },
+  { name: "Target Yunusobod", url: "https://yunusobod.targetschool.uz" },
+  { name: "Target Sergeli", url: "https://sergeli.targetschool.uz" },
+  { name: "Target Mirzo Ulugbek", url: "https://mirzo.targetschool.uz" },
+];
+
 export function Navbar() {
   const { t, language, setLanguage } = useLanguage();
   const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
+  const [isBranchOpen, setIsBranchOpen] = useState(false);
+  const [isMobileBranchOpen, setIsMobileBranchOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,7 +45,7 @@ export function Navbar() {
   const navLinks = [
     { href: "/", label: t("nav.home") },
     { href: "/about", label: t("nav.about") },
-    { href: "/about#values", label: t("nav.values") },
+    // { href: "/about#values", label: t("nav.values") },
     { href: "/gallery", label: t("nav.gallery") },
     { href: "/team", label: t("nav.team") },
     { href: "/contact", label: t("nav.contact") },
@@ -97,6 +106,55 @@ export function Navbar() {
                   )}
                 </Link>
               ))}
+
+              {/* Filiallar Dropdown */}
+              <div
+                className="relative"
+                onMouseEnter={() => setIsBranchOpen(true)}
+                onMouseLeave={() => setIsBranchOpen(false)}
+              >
+                <button
+                  onClick={() => setIsBranchOpen(!isBranchOpen)}
+                  className={cn(
+                    "flex items-center gap-1 text-sm font-medium transition-colors relative py-1",
+                    isScrolled || !isHome
+                      ? "text-foreground hover:text-destructive"
+                      : "text-white/90 hover:text-white",
+                  )}
+                >
+                  Filiallar
+                  <ChevronDown
+                    className={cn(
+                      "w-4 h-4 transition-transform duration-200",
+                      isBranchOpen && "rotate-180",
+                    )}
+                  />
+                </button>
+                <AnimatePresence>
+                  {isBranchOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -8 }}
+                      transition={{ duration: 0.18 }}
+                      className="absolute top-full left-0 mt-2 bg-card rounded-xl shadow-xl border overflow-hidden min-w-[200px] z-50"
+                    >
+                      {branches.map((branch) => (
+                        <a
+                          key={branch.url}
+                          href={branch.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 px-4 py-3 text-sm text-foreground hover:bg-destructive/10 hover:text-destructive transition-colors"
+                        >
+                          <span className="w-2 h-2 rounded-full bg-destructive flex-shrink-0" />
+                          {branch.name}
+                        </a>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             </div>
 
             {/* Language Switcher & Mobile Menu Button */}
@@ -200,6 +258,46 @@ export function Navbar() {
                     {link.label}
                   </Link>
                 ))}
+
+                {/* Filiallar mobile */}
+                <div>
+                  <button
+                    onClick={() => setIsMobileBranchOpen(!isMobileBranchOpen)}
+                    className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-sm font-medium text-foreground hover:bg-muted transition-colors"
+                  >
+                    Filiallar
+                    <ChevronDown
+                      className={cn(
+                        "w-4 h-4 transition-transform duration-200",
+                        isMobileBranchOpen && "rotate-180",
+                      )}
+                    />
+                  </button>
+                  <AnimatePresence>
+                    {isMobileBranchOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="overflow-hidden"
+                      >
+                        {branches.map((branch) => (
+                          <a
+                            key={branch.url}
+                            href={branch.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 px-6 py-2.5 text-sm text-foreground hover:text-destructive transition-colors"
+                          >
+                            <span className="w-1.5 h-1.5 rounded-full bg-destructive flex-shrink-0" />
+                            {branch.name}
+                          </a>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               </div>
             </motion.div>
           </motion.div>
