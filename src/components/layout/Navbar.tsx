@@ -15,10 +15,11 @@ const languages: { code: Language; label: string }[] = [
 ];
 
 const branches = [
-  { name: "Target Chilonzor", url: "https://targetschool.uz" },
+  { name: "Target Qoraqamish", url: "https://target.uz/" },
   { name: "Target Yunusobod", url: "https://yunusobod.targetschool.uz" },
-  { name: "Target Sergeli", url: "https://sergeli.targetschool.uz" },
-  { name: "Target Mirzo Ulugbek", url: "https://mirzo.targetschool.uz" },
+  { name: "Target Sergeli", url: "https://target-sergelischool.uz/" },
+  { name: "Target TInchlik", url: "https://karvonschool.uz/" },
+  { name: "Target Germaniya", url: "https://targetschool.uz" },
 ];
 
 export function Navbar() {
@@ -62,11 +63,11 @@ export function Navbar() {
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           isScrolled || !isHome
             ? "bg-card/95 backdrop-blur-md shadow-md"
-            : "bg-transparent",
+            : "bg-transparent bg-white",
         )}
       >
         <Container>
-          <nav className="flex items-center justify-between h-16 md:h-20">
+          <nav className="flex items-center  justify-between h-16 md:h-20">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2">
               <div
@@ -75,10 +76,7 @@ export function Navbar() {
                   isScrolled || !isHome ? "text-primary" : "text-white",
                 )}
               >
-                <img
-                  src="https://targetschool.uz/assets/icons/Logo.svg"
-                  alt=""
-                />
+                <img width={150} height={150} src="/images/logo1.png" alt="" />
               </div>
             </Link>
 
@@ -94,7 +92,7 @@ export function Navbar() {
                       ? "text-destructive"
                       : isScrolled || !isHome
                         ? "text-foreground hover:text-destructive"
-                        : "text-white/90 hover:text-white",
+                        : "hover:text-white",
                   )}
                 >
                   {link.label}
@@ -119,7 +117,7 @@ export function Navbar() {
                     "flex items-center gap-1 text-sm font-medium transition-colors relative py-1",
                     isScrolled || !isHome
                       ? "text-foreground hover:text-destructive"
-                      : "text-white/90 hover:text-white",
+                      : " hover:text-white",
                   )}
                 >
                   Filiallar
@@ -167,7 +165,7 @@ export function Navbar() {
                     "flex items-center gap-1 text-sm font-medium transition-colors px-2 py-1 rounded",
                     isScrolled || !isHome
                       ? "text-foreground hover:bg-muted"
-                      : "text-white hover:bg-white/10",
+                      : "hover:bg-white/10",
                   )}
                 >
                   {language.toUpperCase()}

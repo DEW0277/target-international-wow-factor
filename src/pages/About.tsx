@@ -14,7 +14,7 @@ const values = [
   { icon: Target, key: "integrity" },
 ];
 
-const timeline = ["2012", "2015", "2018", "2020", "2023"];
+const timeline = ["2012", "2015", "2016", "2017", "2018_1", "2018_2", "2019", "2021", "2022_1", "2022_2", "2023", "2024", "2025"];
 
 const About = () => {
   const { t } = useLanguage();
@@ -137,20 +137,20 @@ const About = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-navy">{t("about.journey.title")}</h2>
           </ScrollReveal>
           <div className="max-w-3xl mx-auto">
-            {timeline.map((year, index) => (
-              <ScrollReveal key={year} width="100%" delay={index * 0.1}>
-                <div className="flex gap-6 mb-12 last:mb-0 group mt-12">
+            {timeline.map((key, index) => (
+              <ScrollReveal key={key} width="100%" delay={index * 0.05}>
+                <div className="flex gap-6 group">
                   <div className="flex flex-col items-center">
-                    <div className="w-12 h-12 rounded-full bg-navy/10 border border-navy/20 text-navy flex items-center justify-center font-bold text-sm group-hover:bg-navy/20 transition-colors">
-                      {year}
+                    <div className="w-12 h-12 rounded-full bg-navy/10 border border-navy/20 text-navy flex items-center justify-center font-bold text-sm group-hover:bg-navy/20 transition-colors shrink-0">
+                      {key.split('_')[0]}
                     </div>
                     {index < timeline.length - 1 && (
-                      <div className="w-0.5 flex-1 bg-navy/10 mt-2" />
+                      <div className="w-0.5 flex-1 bg-navy/10 my-2" />
                     )}
                   </div>
-                  <div className="flex-1 pb-8 glass-card rounded-xl p-6 border border-white/40 ml-4">
-                    <h3 className="font-semibold text-lg text-navy">{t(`about.timeline.${year}.title`)}</h3>
-                    <p className="text-navy/60 mt-1">{t(`about.timeline.${year}.desc`)}</p>
+                  <div className="flex-1 pb-10 glass-card rounded-xl p-6 border border-white/40 ml-4 mb-2 group-hover:border-navy/20 transition-all">
+                    <h3 className="font-semibold text-lg text-navy">{t(`about.timeline.${key}.title`)}</h3>
+                    <p className="text-navy/60 mt-1">{t(`about.timeline.${key}.desc`)}</p>
                   </div>
                 </div>
               </ScrollReveal>

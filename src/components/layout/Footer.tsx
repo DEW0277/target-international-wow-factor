@@ -50,7 +50,7 @@ export function Footer() {
           <div>
             <Link to="/" className="inline-block mb-4">
               <div className="font-bold text-2xl">
-                TARGET<span className="text-destructive ml-1">School</span>
+                <img width={150} height={150} src="/images/logo2.png" alt="" />
               </div>
             </Link>
             <p className="text-primary-foreground/80 text-sm leading-relaxed">
