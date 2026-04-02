@@ -42,6 +42,7 @@ const TypewriterText = ({ text, className, delay = 0 }: TypewriterTextProps) => 
 
   return (
     <motion.div
+      key={text}
       className={cn("overflow-hidden flex flex-wrap justify-center", className)}
       variants={container}
       initial="hidden"

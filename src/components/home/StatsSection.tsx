@@ -7,7 +7,7 @@ const stats = [
   { value: 12, suffix: "+", labelKey: "stats.years" },
   { value: 5000, suffix: "+", labelKey: "stats.students" },
   { value: 92, suffix: "%", labelKey: "stats.universities" },
-  { value: 7, suffix: "", labelKey: "stats.teachers" },
+  { value: 8, suffix: "", labelKey: "stats.teachers" },
 ];
 
 export function StatsSection() {

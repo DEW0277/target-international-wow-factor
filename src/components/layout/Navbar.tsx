@@ -19,7 +19,10 @@ const branches = [
   { name: "Target Yunusobod", url: "https://yunusobod.targetschool.uz" },
   { name: "Target Sergeli", url: "https://target-sergelischool.uz/" },
   { name: "Target TInchlik", url: "https://karvonschool.uz/" },
-  { name: "Target Germaniya", url: "https://targetschool.uz" },
+  {
+    name: "Target Germaniya",
+    url: "https://www.target-bildungszentrum.de/kontakt/",
+  },
 ];
 
 export function Navbar() {
@@ -207,7 +210,7 @@ export function Navbar() {
                   "lg:hidden p-2 rounded-lg transition-colors",
                   isScrolled || !isHome
                     ? "text-foreground hover:bg-muted"
-                    : "text-white hover:bg-white/10",
+                    : "hover:bg-white/10",
                 )}
               >
                 {isMobileMenuOpen ? (
