@@ -51,7 +51,7 @@ export function Navbar() {
     { href: "/about", label: t("nav.about") },
     // { href: "/about#values", label: t("nav.values") },
     { href: "/gallery", label: t("nav.gallery") },
-    { href: "/team", label: t("nav.team") },
+    // { href: "/team", label: t("nav.team") },
     { href: "/contact", label: t("nav.contact") },
   ];
 
