@@ -1,36 +1,11 @@
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { Layout, Container } from "@/components/layout";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { toast } from "sonner";
+import AmoCRMForm from "@/components/ui/AmoCRMForm";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
-
-const formSchema = z.object({
-  name: z.string().min(2, "Name is required"),
-  email: z.string().email("Invalid email"),
-  subject: z.string().min(5, "Subject is required"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
-});
-
-type FormData = z.infer<typeof formSchema>;
 
 const Contact = () => {
   const { t } = useLanguage();
-  const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<FormData>({
-    resolver: zodResolver(formSchema),
-  });
-
-  const onSubmit = async (data: FormData) => {
-    console.log("Form submitted:", data);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    toast.success(t("form.success"));
-    reset();
-  };
 
   const contactInfo = [
     { icon: MapPin, title: t("contact.address"), details: t("contact.addressText"), link: "https://maps.google.com" },
@@ -78,56 +53,7 @@ const Contact = () => {
             <ScrollReveal width="100%" delay={0.2}>
               <div className="glass-card rounded-2xl p-8 border border-white/40 shadow-lg bg-white/40">
                 <h2 className="text-2xl font-bold text-navy mb-6">Send us a Message</h2>
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                  <div>
-                    <label className="block text-sm font-medium text-navy mb-2">
-                      {t("form.name")}
-                    </label>
-                    <Input {...register("name")} placeholder="Your name" className="bg-white/50 border-white/40 text-navy placeholder:text-navy/30 focus-visible:ring-navy/20" />
-                    {errors.name && (
-                      <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
-                    )}
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-navy mb-2">
-                      {t("form.email")}
-                    </label>
-                    <Input {...register("email")} type="email" placeholder="Your email" className="bg-white/50 border-white/40 text-navy placeholder:text-navy/30 focus-visible:ring-navy/20" />
-                    {errors.email && (
-                      <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
-                    )}
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-navy mb-2">
-                      Subject
-                    </label>
-                    <Input {...register("subject")} placeholder="Inquiry subject" className="bg-white/50 border-white/40 text-navy placeholder:text-navy/30 focus-visible:ring-navy/20" />
-                    {errors.subject && (
-                      <p className="text-red-500 text-sm mt-1">{errors.subject.message}</p>
-                    )}
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-navy mb-2">
-                      {t("form.message")}
-                    </label>
-                    <Textarea {...register("message")} rows={4} placeholder="How can we help you?" className="bg-white/50 border-white/40 text-navy placeholder:text-navy/30 focus-visible:ring-navy/20" />
-                    {errors.message && (
-                      <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
-                    )}
-                  </div>
-
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="w-full bg-red-600 hover:bg-red-700 text-white border-0"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? "Sending..." : t("form.submit")}
-                  </Button>
-                </form>
+                <AmoCRMForm />
               </div>
             </ScrollReveal>
           </div>

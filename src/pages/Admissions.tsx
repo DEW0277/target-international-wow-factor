@@ -1,26 +1,8 @@
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { Layout, Container } from "@/components/layout";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { toast } from "sonner";
+import AmoCRMForm from "@/components/ui/AmoCRMForm";
 import { FileText, MessageSquare, ClipboardCheck, CheckCircle } from "lucide-react";
-
-const formSchema = z.object({
-  parentName: z.string().min(2, "Name is required"),
-  phone: z.string().min(9, "Phone is required"),
-  email: z.string().email("Invalid email"),
-  childName: z.string().min(2, "Child name is required"),
-  childAge: z.string().min(1, "Age is required"),
-  grade: z.string().min(1, "Grade is required"),
-  message: z.string().optional(),
-});
-
-type FormData = z.infer<typeof formSchema>;
 
 const steps = [
   { icon: FileText, titleKey: "admissions.step1", descKey: "admissions.step1Desc" },
@@ -31,17 +13,6 @@ const steps = [
 
 const Admissions = () => {
   const { t } = useLanguage();
-  const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<FormData>({
-    resolver: zodResolver(formSchema),
-  });
-
-  const onSubmit = async (data: FormData) => {
-    console.log("Form submitted:", data);
-    // Here you would send to Supabase or API
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    toast.success(t("form.success"));
-    reset();
-  };
 
   return (
     <Layout>
@@ -90,84 +61,7 @@ const Admissions = () => {
               <h2 className="text-2xl font-bold text-navy mb-6 text-center">
                 {t("hero.cta.apply")}
               </h2>
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-navy mb-2">
-                      {t("form.name")} *
-                    </label>
-                    <Input {...register("parentName")} placeholder="John Doe" className="bg-white/50 border-white/40 text-navy placeholder:text-navy/30 focus-visible:ring-navy/20" />
-                    {errors.parentName && (
-                      <p className="text-red-500 text-sm mt-1">{errors.parentName.message}</p>
-                    )}
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-navy mb-2">
-                      {t("form.phone")} *
-                    </label>
-                    <Input {...register("phone")} placeholder="+998 90 123 45 67" className="bg-white/50 border-white/40 text-navy placeholder:text-navy/30 focus-visible:ring-navy/20" />
-                    {errors.phone && (
-                      <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>
-                    )}
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-navy mb-2">
-                    {t("form.email")} *
-                  </label>
-                  <Input {...register("email")} type="email" placeholder="parent@email.com" className="bg-white/50 border-white/40 text-navy placeholder:text-navy/30 focus-visible:ring-navy/20" />
-                  {errors.email && (
-                    <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
-                  )}
-                </div>
-
-                <div className="grid sm:grid-cols-3 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-navy mb-2">
-                      {t("form.childName")} *
-                    </label>
-                    <Input {...register("childName")} placeholder="Child name" className="bg-white/50 border-white/40 text-navy placeholder:text-navy/30 focus-visible:ring-navy/20" />
-                    {errors.childName && (
-                      <p className="text-red-500 text-sm mt-1">{errors.childName.message}</p>
-                    )}
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-navy mb-2">
-                      {t("form.childAge")} *
-                    </label>
-                    <Input {...register("childAge")} type="number" min="5" max="18" placeholder="10" className="bg-white/50 border-white/40 text-navy placeholder:text-navy/30 focus-visible:ring-navy/20" />
-                    {errors.childAge && (
-                      <p className="text-red-500 text-sm mt-1">{errors.childAge.message}</p>
-                    )}
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-navy mb-2">
-                      {t("form.grade")} *
-                    </label>
-                    <Input {...register("grade")} placeholder="5th grade" className="bg-white/50 border-white/40 text-navy placeholder:text-navy/30 focus-visible:ring-navy/20" />
-                    {errors.grade && (
-                      <p className="text-red-500 text-sm mt-1">{errors.grade.message}</p>
-                    )}
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-navy mb-2">
-                    {t("form.message")}
-                  </label>
-                  <Textarea {...register("message")} rows={4} placeholder="Any questions or comments..." className="bg-white/50 border-white/40 text-navy placeholder:text-navy/30 focus-visible:ring-navy/20" />
-                </div>
-
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="w-full bg-red-600 hover:bg-red-700 text-white border-0"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? "Submitting..." : t("form.submit")}
-                </Button>
-              </form>
+              <AmoCRMForm />
             </div>
           </ScrollReveal>
         </Container>
